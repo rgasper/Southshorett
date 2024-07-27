@@ -8,3 +8,6 @@ wheels/
 
 # venv
 .venv
+
+# django sqlite database
+src/db.sqlite3
