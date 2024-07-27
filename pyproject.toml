@@ -1,0 +1,20 @@
+[project]
+name = "southshorett"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Raymond Gasper", email = "14928724+rgasper@users.noreply.github.com" }
+]
+dependencies = [
+    "django~=5.0.7",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
