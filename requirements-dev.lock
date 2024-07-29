@@ -13,6 +13,9 @@
 asgiref==3.8.1
     # via django
 django==5.0.7
+    # via django-hyperview
+    # via southshorett
+django-hyperview==0.0.2
     # via southshorett
 sqlparse==0.5.1
     # via django
