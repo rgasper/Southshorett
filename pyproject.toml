@@ -8,6 +8,7 @@ authors = [
 dependencies = [
     "django~=5.0.7",
     "django-hyperview~=0.0.2",
+    "htpy~=24.7.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

@@ -17,5 +17,9 @@ django==5.0.7
     # via southshorett
 django-hyperview==0.0.2
     # via southshorett
+htpy==24.7.2
+    # via southshorett
+markupsafe==2.1.5
+    # via htpy
 sqlparse==0.5.1
     # via django
