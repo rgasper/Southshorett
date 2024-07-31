@@ -22,7 +22,7 @@ class IndexTest(TestCase):
         assert response.status_code == 200, response.status_code
         assert (
             response.content
-            == b'<doc xmlns="https://hyperview.org/hyperview"><screen><body><text>\n\n\n\nHello, world. You&#39;re at the southshorett index.</text></body></screen></doc>'  # noqa: E501
+            == b'<doc xmlns="https://hyperview.org/hyperview"><screen><body><text>Hello, world. You&#39;re at the southshorett index.</text></body></screen></doc>'  # noqa: E501
         ), response.content
         assert (
             response.headers["Content-Type"] == "application/vnd.hyperview+xml"

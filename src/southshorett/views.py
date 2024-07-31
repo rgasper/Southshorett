@@ -10,7 +10,7 @@ def index(request):
     if request.hv:
         return hv_repond(
             HttpResponse(
-                hxml[screen[body[text["\n\n\n\n" + message]]]]
+                hxml[screen[body[text[message]]]]
             )
         )
     return HttpResponse(html[body[div[message]]])
