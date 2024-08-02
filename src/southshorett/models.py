@@ -43,13 +43,13 @@ class Match(MyBaseModel):
     when = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.winner.name} vs {self.loser.name} on {self.when.strftime('%M/%d/%Y')}"
+        return f"{self.winner.name} vs {self.loser.name} on {self.when.strftime('%m/%d/%Y')}"
 
 
 class Rating(MyBaseModel):
-    player = models.ForeignKey(Player, on_delete=models.CASCADE)
-    season = models.ForeignKey(Season, on_delete=models.CASCADE)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="ratings")
+    season = models.ForeignKey(Season, on_delete=models.CASCADE, related_name="ratings")
     elo = models.IntegerField()
 
     def __str__(self):
-        return f"{self.player.name}'s Rating'"
+        return f"{self.player.name}'s Rating"

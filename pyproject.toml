@@ -29,6 +29,9 @@ dbredo = {chain=["rmdb", "rmmigrations", "mkdirmigrations", "initmigrations", "m
 "migrate" = "python src/manage.py migrate"
 "createsuperuser" = "python src/manage.py createsuperuser"
 "test" = "python src/manage.py test src/southshorett/"
+"dbdump" = "python src/manage.py dumpdata > src/southshorett/fixtures/demo.json"
+"dbload" = "python src/manage.py loaddata src/southshorett/fixtures/demo.json"
+
 # not likely to be used directly below
 "rmdb" = "rm src/db.sqlite3"
 "rmmigrations" = "rm -r src/southshorett/migrations/"
