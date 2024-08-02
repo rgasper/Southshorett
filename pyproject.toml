@@ -9,6 +9,7 @@ dependencies = [
     "django~=5.0.7",
     "django-hyperview~=0.0.2",
     "htpy~=24.7.2",
+    "django-browser-reload~=1.13.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -20,3 +21,16 @@ build-backend = "pdm.backend"
 [tool.rye]
 managed = true
 dev-dependencies = []
+
+[tool.rye.scripts]
+devserver = {cmd = "python src/manage.py runserver 0.0.0.0:8000"}
+dbredo = {chain=["rmdb", "rmmigrations", "mkdirmigrations", "initmigrations", "makemigrations", "migrate"]}
+"makemigrations" = "python src/manage.py makemigrations"
+"migrate" = "python src/manage.py migrate"
+"createsuperuser" = "python src/manage.py createsuperuser"
+"test" = "python src/manage.py test src/southshorett/"
+# not likely to be used directly below
+"rmdb" = "rm src/db.sqlite3"
+"rmmigrations" = "rm -r src/southshorett/migrations/"
+"mkdirmigrations" = "mkdir src/southshorett/migrations/"
+"initmigrations" = "touch src/southshorett/migrations/__init__.py"

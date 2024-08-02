@@ -12,8 +12,12 @@
 -e file:.
 asgiref==3.8.1
     # via django
+    # via django-browser-reload
 django==5.0.7
+    # via django-browser-reload
     # via django-hyperview
+    # via southshorett
+django-browser-reload==1.13.0
     # via southshorett
 django-hyperview==0.0.2
     # via southshorett

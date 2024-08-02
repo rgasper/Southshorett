@@ -1,7 +1,9 @@
 from django.test import TestCase, Client
+from .models import Season
+from datetime import datetime, timedelta
 
 
-class IndexTest(TestCase):
+class IndexTests(TestCase):
     def setUp(self):
         self.web_client = Client()
         self.app_client = Client(headers={"X-Hyperview-Version": "test"})
@@ -27,3 +29,13 @@ class IndexTest(TestCase):
         assert (
             response.headers["Content-Type"] == "application/vnd.hyperview+xml"
         ), response.headers["Content-Type"]
+
+
+class ModelsTests(TestCase):
+
+    def test_Season_get_current(self):
+        s1 = Season(name='test', start=datetime.now()-timedelta(days=1), end=datetime.now()+timedelta(days=2))
+        s1.save()
+        s2 = Season.get_current()
+        assert s2 == s1        
+

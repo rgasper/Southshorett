@@ -11,3 +11,6 @@ wheels/
 
 # django sqlite database
 src/db.sqlite3
+
+# for mad development mode, no point in tracking migrations since I overwrite them every time anyway
+src/southshorett/migrations/*
