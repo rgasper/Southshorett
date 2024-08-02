@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from django.conf import settings
+from django.contrib.auth.models import User
 
 
 class MyBaseModel(models.Model):
@@ -13,7 +13,7 @@ class MyBaseModel(models.Model):
 
 class Player(MyBaseModel):
     name = models.CharField(max_length=64)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -23,6 +23,7 @@ class Season(MyBaseModel):
     name = models.CharField(max_length=64)
     start = models.DateField()
     end = models.DateField()
+    players = models.ManyToManyField(Player, through="Rating")
 
     def __str__(self):
         return self.name
@@ -38,7 +39,7 @@ class Match(MyBaseModel):
 
     winner = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="wins")
     loser = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="losses")
-    season = models.ForeignKey(Season, on_delete=models.CASCADE)
+    season = models.ForeignKey(Season, on_delete=models.CASCADE, related_name="matches")
     when = models.DateTimeField()
 
     def __str__(self):
