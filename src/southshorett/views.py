@@ -2,8 +2,13 @@ from django.http import HttpResponse
 from django_hv.http import hv_repond
 from .models import Season
 
+# index
 from southshorett.components.app import index as app_index
 from southshorett.components.web import index as web_index
+
+# log a match
+from southshorett.components.app import log_a_match as app_log_a_match
+from southshorett.components.web import log_a_match as web_log_a_match
 
 
 def index(request):
@@ -26,3 +31,10 @@ def index(request):
                 request, current_season=current_season, ratings_players=ratings_players
             )
         )
+
+
+def log_a_match(request):
+    if request.hv:
+        return hv_repond(HttpResponse(app_log_a_match(request)))
+    else:
+        return HttpResponse(web_log_a_match(request))
